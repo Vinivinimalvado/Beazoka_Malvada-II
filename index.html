@@ -5,40 +5,188 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bia 💙</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1e4cff, #020b2d);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: white;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 360px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+      backdrop-filter: blur(18px);
+      border-radius: 28px;
+      padding: 28px 22px 34px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+      position: relative;
+    }
+
+    h1 {
+      font-size: 42px;
+      background: linear-gradient(90deg, #5efcff, #3f8cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .days {
+      font-size: 14px;
+      opacity: 0.85;
+      margin-bottom: 22px;
+    }
+
+    .photo-polaroid {
+      background: #fff;
+      padding: 12px 12px 26px;
+      border-radius: 14px;
+      width: 78%;
+      margin: 0 auto 22px;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.35);
+      transform: rotate(-1.5deg);
+    }
+
+    .photo-polaroid img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .text-main {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 12px;
+      border-radius: 22px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-main {
+      background: linear-gradient(90deg, #4dfcff, #4a7dff);
+      color: #001d3d;
+      font-weight: 600;
+    }
+
+    .btn-alt {
+      background: rgba(255,255,255,0.15);
+      color: white;
+    }
+
+    .btn-save {
+      width: 100%;
+      margin-top: 6px;
+      background: rgba(255,255,255,0.12);
+      color: white;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      color: red;
+      animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(-120vh);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-  <div class="card">
-    <h1>Bia</h1>
+<audio id="bgMusic" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
 
-    <p class="tempo">Estamos juntos há <span id="dias"></span> dias 💙</p>
+<div class="card">
+  <h1>Bia</h1>
+  <div class="days">Estamos juntos há 38 dias 🔁</div>
 
-    <!-- FOTO POLAROID -->
-    <div class="polaroid">
-      <img src="assets/bia1.jpg" alt="Nós dois">
-      <span>nós 💙</span>
-    </div>
-
-    <p class="frase">
-      Respira. Você não tá sozinha.  
-      Eu tô aqui.
-    </p>
-
-    <p class="frase menor">
-      Eu não sei amar pouco.  
-      Eu ainda bem, porque você merece tudo.
-    </p>
-
-    <div class="botoes">
-      <button onclick="trocarFrase()">clique aqui</button>
-      <button class="sec">dia ruim</button>
-    </div>
-
-    <button class="salvar">⭐ salvar frase</button>
+  <div class="photo-polaroid">
+    <img src="foto.jpg">
   </div>
 
-  <script src="script.js"></script>
+  <div class="text-main" id="frase">
+    Respira. Você não tá sozinha. Eu tô aqui.
+  </div>
+
+  <div class="buttons">
+    <button class="btn btn-main" onclick="acaoPrincipal()">clique aqui</button>
+    <button class="btn btn-alt" onclick="diaRuim()">dia ruim</button>
+  </div>
+
+  <button class="btn btn-save" onclick="salvarFrase()">⭐ salvar frase</button>
+</div>
+
+<script>
+  const frases = [
+    "Você é o six do meu seven.",
+    "Você é a AU da minha aura.",
+    "Eu escolho você todos os dias.",
+    "Enquanto for você, eu fico."
+  ];
+
+  function acaoPrincipal() {
+    document.getElementById("bgMusic").play();
+    trocarFrase();
+  }
+
+  function trocarFrase() {
+    const frase = frases[Math.floor(Math.random() * frases.length)];
+    document.getElementById("frase").innerText = frase;
+  }
+
+  function diaRuim() {
+    document.getElementById("frase").innerText =
+      "Mesmo nos dias ruins, eu fico. Você não tá sozinha 💙";
+    for (let i = 0; i < 20; i++) criarCoracao();
+  }
+
+  function salvarFrase() {
+    const texto = document.getElementById("frase").innerText;
+    localStorage.setItem("fraseBia", texto);
+    alert("Frase salva 💙");
+  }
+
+  function criarCoracao() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 16 + 12 + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
+
+  const salva = localStorage.getItem("fraseBia");
+  if (salva) document.getElementById("frase").innerText = salva;
+</script>
+
 </body>
 </html>

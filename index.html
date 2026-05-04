@@ -1,48 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Você 💙</title>
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Você 💙</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- CHUVA AZUL -->
 <div class="rain" id="rain"></div>
 
-<!-- CARD PRINCIPAL -->
 <div class="card">
-
-    <!-- FOTO ÚNICA -->
-    <div class="photo">
-        <img src="bia1.jpg" alt="foto">
+    <div class="carousel">
+        <img src="bia1.jpg" class="active" alt="Momento 1">
+        <img src="bia2.jpg" alt="Momento 2">
+        <img src="bia3.jpg" alt="Momento 3">
     </div>
 
-    <h2>Momentos 💙</h2>
+    <h2>Beazoka💙</h2>
     <p>Algumas lembranças especiais</p>
 
-    <!-- BOTÕES -->
     <div class="buttons">
         <button id="btn1">Mensagens 💙</button>
         <button id="btn2">Quando você estiver só</button>
     </div>
-
 </div>
 
-<!-- CAIXA DE MENSAGEM (BOTÃO 2) -->
 <div class="message-box" id="msgBox">
     <h3>Quando você estiver só</h3>
-    <p>
-        Eu não vou te abandonar.  
-        Eu sempre vou estar com você. 💙
-    </p>
+    <p>Eu não vou te abandonar. Eu sempre vou estar com você. 💙</p>
     <button onclick="closeMsg()">Fechar</button>
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>

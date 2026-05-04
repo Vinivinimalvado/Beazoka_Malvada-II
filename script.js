@@ -1,14 +1,17 @@
-/* CARROSSEL */
+/* CONTROLE DO CARROSSEL */
 let index = 0;
 const images = document.querySelectorAll(".carousel img");
 
-setInterval(() => {
-    images[index].classList.remove("active");
-    index = (index + 1) % images.length;
-    images[index].classList.add("active");
-}, 3000);
+function rotateImages() {
+    if (images.length > 0) {
+        images[index].classList.remove("active");
+        index = (index + 1) % images.length;
+        images[index].classList.add("active");
+    }
+}
+setInterval(rotateImages, 3000);
 
-/* BOTÃO 1 */
+/* BOTÃO 1 - FRASES NO ALERT */
 const mensagens1 = [
     "Você é especial 💙",
     "Eu te amo 💙 e Jesus também te ama 💙",
@@ -23,34 +26,38 @@ const mensagens1 = [
 ];
 
 let i1 = 0;
-
 document.getElementById("btn1").onclick = () => {
     alert(mensagens1[i1]);
     i1 = (i1 + 1) % mensagens1.length;
 };
 
-/* BOTÃO 2 */
+/* BOTÃO 2 - MOSTRAR POP-UP */
+const msgBox = document.getElementById("msgBox");
 document.getElementById("btn2").onclick = () => {
-    document.getElementById("msgBox").style.display = "block";
+    msgBox.style.display = "block";
 };
 
 function closeMsg() {
-    document.getElementById("msgBox").style.display = "none";
+    msgBox.style.display = "none";
 }
 
-/* CHUVA AZUL */
-const rain = document.getElementById("rain");
+/* EFEITO DE CHUVA */
+const rainContainer = document.getElementById("rain");
 
 function createDrop() {
     const drop = document.createElement("div");
     drop.classList.add("drop");
 
-    drop.style.left = Math.random() * window.innerWidth + "px";
-    drop.style.animationDuration = (Math.random() * 2 + 2) + "s";
+    const startLeft = Math.random() * window.innerWidth;
+    drop.style.left = startLeft + "px";
+    drop.style.animationDuration = (Math.random() * 2 + 1.5) + "s";
+    drop.style.opacity = Math.random() * 0.5 + 0.2;
 
-    rain.appendChild(drop);
+    rainContainer.appendChild(drop);
 
-    setTimeout(() => drop.remove(), 4000);
+    setTimeout(() => {
+        drop.remove();
+    }, 3000);
 }
 
-setInterval(createDrop, 70);
+setInterval(createDrop, 80);

@@ -1,4 +1,4 @@
-/* ===== CARROSSEL + BOTÃO 1 SINCRONIZADO ===== */
+/* ===== BOTÃO 1 (MENSAGENS EM SEQUÊNCIA) ===== */
 const mensagens1 = [
     "Você é especial 💙",
     "Eu te amo 💙 e Jesus também te ama 💙",
@@ -12,20 +12,14 @@ const mensagens1 = [
     "Eu acredito em você e no seu valor 💙"
 ];
 
-const imagens = document.querySelectorAll(".carousel img");
-
 let i1 = 0;
 
 document.getElementById("btn1").onclick = () => {
     alert(mensagens1[i1]);
-
-    imagens.forEach(img => img.classList.remove("active"));
-    imagens[i1 % imagens.length].classList.add("active");
-
     i1 = (i1 + 1) % mensagens1.length;
 };
 
-/* ===== BOTÃO 2 ===== */
+/* ===== BOTÃO 2 (MENSAGEM FIXA) ===== */
 document.getElementById("btn2").onclick = () => {
     document.getElementById("msgBox").style.display = "block";
 };

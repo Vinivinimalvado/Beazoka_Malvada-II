@@ -1,37 +1,42 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Você 💙</title>
+/* ===== CARROSSEL ===== */
+let index = 0;
+const images = document.querySelectorAll(".carousel img");
 
-<link rel="stylesheet" href="style.css">
-</head>
+function showSlide() {
+    images.forEach(img => img.classList.remove("active"));
+    images[index].classList.add("active");
+}
 
-<body>
+setInterval(() => {
+    index++;
+    if (index >= images.length) index = 0;
+    showSlide();
+}, 3000);
 
-<div class="rain" id="rain"></div>
+/* ===== BOTÕES ===== */
+document.getElementById("btn1").addEventListener("click", () => {
+    alert("Você é muito especial 💙");
+});
 
-<div class="card">
+document.getElementById("btn2").addEventListener("click", () => {
+    alert("Isso aqui é só o começo ✨");
+});
 
-    <!-- CARROSSEL -->
-    <div class="carousel">
-        <img src="bia1.jpg" class="active">
-        <img src="bia2.jpg">
-        <img src="bia3.jpg">
-    </div>
+/* ===== CHUVA AZUL ===== */
+const rain = document.getElementById("rain");
 
-    <div class="text">
-        Momentos especiais 💙
-    </div>
+function createDrop() {
+    const drop = document.createElement("div");
+    drop.classList.add("drop");
 
-    <div class="buttons">
-        <button id="btn1">Clique aqui</button>
-        <button id="btn2">Outra mensagem</button>
-    </div>
+    drop.style.left = Math.random() * window.innerWidth + "px";
+    drop.style.animationDuration = (Math.random() * 2 + 2) + "s";
 
-</div>
+    rain.appendChild(drop);
 
-<script src="script.js"></script>
-</body>
-</html>
+    setTimeout(() => {
+        drop.remove();
+    }, 4000);
+}
+
+setInterval(createDrop, 80);

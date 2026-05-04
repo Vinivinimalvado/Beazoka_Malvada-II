@@ -1,4 +1,14 @@
-/* ===== BOTÃO 1 (MENSAGENS EM SEQUÊNCIA) ===== */
+/* CARROSSEL */
+let index = 0;
+const images = document.querySelectorAll(".carousel img");
+
+setInterval(() => {
+    images[index].classList.remove("active");
+    index = (index + 1) % images.length;
+    images[index].classList.add("active");
+}, 3000);
+
+/* BOTÃO 1 */
 const mensagens1 = [
     "Você é especial 💙",
     "Eu te amo 💙 e Jesus também te ama 💙",
@@ -19,7 +29,7 @@ document.getElementById("btn1").onclick = () => {
     i1 = (i1 + 1) % mensagens1.length;
 };
 
-/* ===== BOTÃO 2 (MENSAGEM FIXA) ===== */
+/* BOTÃO 2 */
 document.getElementById("btn2").onclick = () => {
     document.getElementById("msgBox").style.display = "block";
 };
@@ -28,7 +38,7 @@ function closeMsg() {
     document.getElementById("msgBox").style.display = "none";
 }
 
-/* ===== CHUVA AZUL ===== */
+/* CHUVA AZUL */
 const rain = document.getElementById("rain");
 
 function createDrop() {

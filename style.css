@@ -1,42 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+/* ===== CHUVA ===== */
+.rain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.drop {
+    position: absolute;
+    top: -10px;
+    width: 6px;
+    height: 6px;
+    background: #4da3ff;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+/* ===== CARD ===== */
+.card {
+    background: white;
+    width: 340px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    text-align: center;
+    z-index: 10;
+}
+
 /* ===== CARROSSEL ===== */
-let index = 0;
-const images = document.querySelectorAll(".carousel img");
-
-function showSlide() {
-    images.forEach(img => img.classList.remove("active"));
-    images[index].classList.add("active");
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 12px;
 }
 
-setInterval(() => {
-    index++;
-    if (index >= images.length) index = 0;
-    showSlide();
-}, 3000);
-
-/* ===== BOTÕES ===== */
-document.getElementById("btn1").addEventListener("click", () => {
-    alert("Você é muito especial 💙");
-});
-
-document.getElementById("btn2").addEventListener("click", () => {
-    alert("Isso aqui é só o começo ✨");
-});
-
-/* ===== CHUVA AZUL ===== */
-const rain = document.getElementById("rain");
-
-function createDrop() {
-    const drop = document.createElement("div");
-    drop.classList.add("drop");
-
-    drop.style.left = Math.random() * window.innerWidth + "px";
-    drop.style.animationDuration = (Math.random() * 2 + 2) + "s";
-
-    rain.appendChild(drop);
-
-    setTimeout(() => {
-        drop.remove();
-    }, 4000);
+.carousel img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.6s ease;
 }
 
-setInterval(createDrop, 80);
+.carousel img.active {
+    opacity: 1;
+}
+
+/* TEXTO */
+.text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* BOTÕES */
+.buttons {
+    margin-top: 12px;
+}
+
+button {
+    padding: 10px 14px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#btn1 {
+    background: #1e90ff;
+    color: white;
+}
+
+#btn2 {
+    background: #0b5ed7;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.05);
+}

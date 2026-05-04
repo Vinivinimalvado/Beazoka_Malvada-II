@@ -1,29 +1,42 @@
-// DATA DE INÍCIO DO RELACIONAMENTO
-const inicio = new Date("2026-03-27"); // ALTERE se quiser
-const hoje = new Date();
+/* ===== CARROSSEL ===== */
+let index = 0;
+const images = document.querySelectorAll(".carousel img");
 
-const diff = hoje - inicio;
-const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-
-document.getElementById("dias").innerText = dias;
-
-// FRASES
-const frases = [
-  "Respira. Você não tá sozinha. Eu tô aqui.",
-  "Se o mundo pesar, deixa eu segurar com você.",
-  "Você não precisa ser forte o tempo todo.",
-  "Com você, tudo fica mais leve."
-];
-
-let i = 0;
-
-function trocarFrase() {
-  const el = document.querySelector(".frase");
-  el.style.opacity = 0;
-
-  setTimeout(() => {
-    el.innerText = frases[i];
-    el.style.opacity = 1;
-    i = (i + 1) % frases.length;
-  }, 200);
+function showSlide() {
+    images.forEach(img => img.classList.remove("active"));
+    images[index].classList.add("active");
 }
+
+setInterval(() => {
+    index++;
+    if (index >= images.length) index = 0;
+    showSlide();
+}, 3000);
+
+/* ===== BOTÕES ===== */
+document.getElementById("btn1").addEventListener("click", () => {
+    alert("Você é muito especial 💙");
+});
+
+document.getElementById("btn2").addEventListener("click", () => {
+    alert("Isso aqui é só o começo ✨");
+});
+
+/* ===== CHUVA AZUL ===== */
+const rain = document.getElementById("rain");
+
+function createDrop() {
+    const drop = document.createElement("div");
+    drop.classList.add("drop");
+
+    drop.style.left = Math.random() * window.innerWidth + "px";
+    drop.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+    rain.appendChild(drop);
+
+    setTimeout(() => {
+        drop.remove();
+    }, 4000);
+}
+
+setInterval(createDrop, 80);

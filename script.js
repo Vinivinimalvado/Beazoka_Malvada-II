@@ -14,13 +14,13 @@ setInterval(rotateImages, 3000);
 /* BOTÃO 1 - FRASES NO ALERT */
 const mensagens1 = [
     "Você é especial 💙",
-    "Eu te amo 💙 e Jesus também te ama 💙",
-    "Você é o siz do meu sevem 💙",
+    "Eu te amo e Jesus também te ama 💙",
+    "Você é o six do meu seven 💙",
     "Você é a AU da minha aura 💙",
     "Você ilumina tudo ao seu redor 💙",
     "Mesmo nos dias difíceis, você continua incrível 💙",
-    "Eu gosto muito de você de verdade 💙",
-    "Seu sorriso muda qualquer dia 💙",
+    "Eu gosto muito de você pp10 💙",
+    "Seu sorriso muda qualquer dia nublado 💙",
     "Você é única, não existe outra igual 💙",
     "Eu acredito em você e no seu valor 💙"
 ];

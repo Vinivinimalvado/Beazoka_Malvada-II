@@ -1,44 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bia 💙</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Você 💙</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="card">
-    <h1>Bia</h1>
+<div class="rain" id="rain"></div>
 
-    <p class="tempo">Estamos juntos há <span id="dias"></span> dias 💙</p>
+<div class="card">
 
-    <!-- FOTO POLAROID -->
-    <div class="polaroid">
-      <img src="assets/bia1.jpg" alt="Nós dois">
-      <span>nós 💙</span>
+    <!-- CARROSSEL -->
+    <div class="carousel">
+        <img src="bia1.jpg" class="active">
+        <img src="bia2.jpg">
+        <img src="bia3.jpg">
     </div>
 
-    <p class="frase">
-      Respira. Você não tá sozinha.  
-      Eu tô aqui.
-    </p>
-
-    <p class="frase menor">
-      Eu não sei amar pouco.  
-      Eu ainda bem, porque você merece tudo.
-    </p>
-
-    <div class="botoes">
-      <button onclick="trocarFrase()">clique aqui</button>
-      <button class="sec">dia ruim</button>
+    <div class="text">
+        Momentos especiais 💙
     </div>
 
-    <button class="salvar">⭐ salvar frase</button>
-  </div>
+    <div class="buttons">
+        <button id="btn1">Clique aqui</button>
+        <button id="btn2">Outra mensagem</button>
+    </div>
 
-  <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

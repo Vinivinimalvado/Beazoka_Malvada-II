@@ -1,106 +1,37 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Manrope', sans-serif;
-}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Você 💙</title>
 
-body {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0b1d3a, #0f3c91);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+<link rel="stylesheet" href="style.css">
+</head>
 
-.card {
-  width: 100%;
-  max-width: 360px;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(18px);
-  border-radius: 26px;
-  padding: 28px 22px;
-  text-align: center;
-  color: #eaf2ff;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-}
+<body>
 
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 38px;
-  color: #7dd3ff;
-  margin-bottom: 8px;
-}
+<div class="rain" id="rain"></div>
 
-.tempo {
-  font-size: 14px;
-  opacity: 0.9;
-  margin-bottom: 18px;
-}
+<div class="card">
 
-/* POLAROID */
-.polaroid {
-  background: #fff;
-  padding: 12px 12px 26px;
-  border-radius: 12px;
-  width: 220px;
-  margin: 0 auto 22px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-}
+    <!-- CARROSSEL -->
+    <div class="carousel">
+        <img src="bia1.jpg" class="active">
+        <img src="bia2.jpg">
+        <img src="bia3.jpg">
+    </div>
 
-.polaroid img {
-  width: 100%;
-  border-radius: 8px;
-  display: block;
-}
+    <div class="text">
+        Momentos especiais 💙
+    </div>
 
-.polaroid span {
-  display: block;
-  margin-top: 10px;
-  font-size: 13px;
-  color: #444;
-  font-family: 'Playfair Display', serif;
-}
+    <div class="buttons">
+        <button id="btn1">Clique aqui</button>
+        <button id="btn2">Outra mensagem</button>
+    </div>
 
-/* TEXTOS */
-.frase {
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 12px;
-}
+</div>
 
-.frase.menor {
-  font-size: 14px;
-  opacity: 0.85;
-  margin-bottom: 22px;
-}
-
-/* BOTÕES */
-.botoes {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  margin-bottom: 14px;
-}
-
-button {
-  padding: 10px 18px;
-  border-radius: 999px;
-  border: none;
-  background: linear-gradient(90deg, #7dd3ff, #4aa3ff);
-  color: #02214d;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-button.sec {
-  background: rgba(255,255,255,0.2);
-  color: #fff;
-}
-
-button.salvar {
-  margin-top: 6px;
-  background: rgba(255,255,255,0.15);
-  color: #fff;
-  font-size: 13px;
-}
+<script src="script.js"></script>
+</body>
+</html>
